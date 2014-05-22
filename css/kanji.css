@@ -1,0 +1,43 @@
+body {
+  padding: 8px;
+}
+h1{
+  font-size:12px;
+  margin: 4px;
+}
+#localstorage-disabled{
+  display: none;
+}
+#hist{
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 0;
+}
+#hist li{
+  border-radius: 3px;
+  border: solid 1px skyblue;
+  margin: 2px;
+}
+#loupe{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top:0; left:0;
+  background-color: white;
+  border:solid 1px skyblue;
+  opacity: 0.9;
+  display: none;
+  z-index: 10;
+  text-align:center;
+}
+#loupe button.close{
+  margin-right: 5px;
+}
+#loupe-text{
+  display: inline-block;
+  white-space: nowrap;
+}
+#clear-all-button-box{
+  margin-top: 10px;
+  text-align: right;
+}

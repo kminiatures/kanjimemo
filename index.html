@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>漢字メモ</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/kanji.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+        <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+      <div id="loupe">
+        <button type="button" class="close" aria-hidden="true">&times;</button>
+        <div id="loupe-text"></div>
+        <button type="button" id="delete-button" class="btn btn-danger">削除</button>
+      </div>
+      <div id="container">
+        <header><h1><a href="index.html">漢字メモ</a></h1></header>
+
+        <div class="row">
+          <div class="col-xs-9">
+            <input id="kanji" type="text" class="form-control">
+          </div>
+          <div class="col-xs-2">
+            <input id="save" type="button" class="btn btn-success" value="保存">
+          </div>
+        </div>
+
+        <div id="main" role="main"><ul id="hist" class=""></ul></div>
+        <div id="clear-all-button-box">
+          <input type="button" id="clear-all-button" class="btn btn-danger btn-xs" value="全削除">
+        </div>
+        <footer>
+          <p>&copy; kobayashi 2014</p>
+        </footer>
+      </div> <!-- /container -->        
+
+      <div id="localstorage-disabled">
+        ローカルストレージに対応していません。
+      </div>
+
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+      <script src="js/vendor/bootstrap.min.js"></script>
+      <script src="js/main.js"></script>
+      <script src="js/kanji.js"></script>
+    </body>
+</html>
