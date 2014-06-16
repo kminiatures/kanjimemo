@@ -4,6 +4,9 @@ $(document).ready(function(){
   var KEY = function(){};
   KEY.ENTER = 13;
 
+  // appCache = window.applicationCache;
+  // appCache.update();
+
   function saveStorage(hash){
     localStorage.setItem(storage_key, JSON.stringify(hash));
   }
@@ -16,6 +19,12 @@ $(document).ready(function(){
   if(loadStorage() == undefined) saveStorage({});
 
   var history = loadStorage();
+  if(Object.keys(history).length === 0){
+    alert('漢字をメモしておけるよ。サーバにはなにも保存していないので、恥しい漢字を保存しても大丈夫ですよ。iPhone 用だよ。');
+    openSlide($('#help'));
+  }else{
+    console.log(history);
+  }
 
   function print_history(){
     $('#hist').html('');
@@ -64,6 +73,33 @@ $(document).ready(function(){
     while($(inner_id).width() + 20 < box_width){
       font_size += 3;
       $(inner_id).css({fontSize: font_size});
+    }
+  }
+
+  function openSlide(dom){
+    var top = $(window).scrollTop();
+    var margin_top =  top + 'px'
+    dom.css('margin-top', margin_top );
+    dom.slideDown();
+  }
+
+  function date_for(date_obj){
+    var d = new Date(date_obj);
+    return [
+      d.getFullYear(),
+      pad(d.getMonth() + 1),
+      pad(d.getDate()),
+    ].join("-") + " " + [
+      pad(d.getHours()),
+      pad(d.getMinutes())
+    ].join(":")
+  }
+
+  function pad(num){
+    if(num < 10){
+      return "0" + num;
+    }else{
+      return num;
     }
   }
 
@@ -117,36 +153,20 @@ $(document).ready(function(){
     $('#loupe-text').text(str);
     $('#loupe-count').html( h.count + "回");
     $('#loupe-updated_at').text(date_for(h.updated_at));
-    var top = $(window).scrollTop();
-    var margin_top =  top + 'px'
-    $('#loupe').css('margin-top', margin_top );
-    $('#loupe').slideDown();
+    openSlide($('#loupe'));
     fitFontSizeToBox('#loupe', '#loupe-text');
   });
-
-  function date_for(date_obj){
-    var d = new Date(date_obj);
-    return [
-      d.getFullYear(),
-      pad(d.getMonth() + 1),
-      pad(d.getDate()),
-    ].join("-") + " " + [
-      pad(d.getHours()),
-      pad(d.getMinutes())
-    ].join(":")
-  }
-
-  function pad(num){
-    if(num < 10){
-      return "0" + num;
-    }else{
-      return num;
-    }
-  }
 
   $('#loupe').click(function(){
     $(this).slideUp('fast', function(){
       $('#loupe-text').text('').css({fontSize: 20});
     });
+  });
+
+  $('#open-help').click(function(){
+    openSlide($('#help'));
+  });
+  $('#help').click(function(){
+    $(this).slideUp('fast');
   });
 });

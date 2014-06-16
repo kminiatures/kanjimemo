@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 0.3
+# 0.3.6
 index.html
 css/bootstrap.min.css
 css/bootstrap-theme.min.css
@@ -10,3 +10,8 @@ js/vendor/bootstrap.min.js
 js/vendor/jquery-1.11.0.min.js
 js/kanji.js
 js/main.js
+img/help.png
+fonts/glyphicons-halflings-regular.svg
+fonts/glyphicons-halflings-regular.eot
+fonts/glyphicons-halflings-regular.ttf
+fonts/glyphicons-halflings-regular.woff
