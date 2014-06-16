@@ -1,0 +1,12 @@
+CACHE MANIFEST
+# 0.3
+index.html
+css/bootstrap.min.css
+css/bootstrap-theme.min.css
+css/main.css
+css/kanji.css
+js/vendor/modernizr-2.6.2-respond-1.1.0.min.js
+js/vendor/bootstrap.min.js
+js/vendor/jquery-1.11.0.min.js
+js/kanji.js
+js/main.js

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html manifest="cache.manifest">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>漢字メモ</title>
+        <title>漢字帳</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1">
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -13,15 +13,24 @@
         <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
         <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+        <link rel="apple-touch-icon"                 href="/ios/apple-touch-icon-precomposed.png"/>
+        <link rel="apple-touch-icon" sizes="72x72"   href="/ios/apple-touch-icon-72x72-precomposed.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/ios/apple-touch-icon-114x114-precomposed.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/ios/apple-touch-icon-144x144-precomposed.png" />
     </head>
     <body>
       <div id="loupe">
+        <button type="button" id="delete-button" class="pull-left btn btn-default btn-xs">削除</button>
         <button type="button" class="close" aria-hidden="true">&times;</button>
+        <div id="loupe-info">
+          <span id="loupe-updated_at"></span>
+          <span id="loupe-count"></span>
+        </div>
         <div id="loupe-text"></div>
-        <button type="button" id="delete-button" class="btn btn-danger">削除</button>
       </div>
       <div id="container">
-        <header><h1><a href="index.html">漢字メモ</a></h1></header>
+        <header><h1><a href="index.html">漢字帳</a></h1></header>
 
         <div class="row">
           <div class="col-xs-9">
