@@ -15,6 +15,10 @@ $(document).ready(function(){
     return JSON.parse(localStorage.getItem(storage_key));
   }
 
+  if(window.navigator.standalone){
+    $('#help').html('<img src="/img/help-standalone.png">');
+  }
+
   // initialize
   if(loadStorage() == undefined) saveStorage({});
 

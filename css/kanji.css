@@ -32,9 +32,9 @@ h1{
 }
 
 #loupe, #help{
-  height: 150%;
+  height: 110%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top:0; left:0;
   background-color: black;
   color: #ddd;
@@ -46,12 +46,15 @@ h1{
 #help{
   border:none;
 }
+#help img{
+ width:100%;
+}
 #loupe-info{
-  color:silver;
-  padding-top: 15px;
+  color: silver;
+  padding-top: 45px;
 }
 #delete-button{
-  margin: 2px;
+  margin: 15px 0 0 5px;
 }
 
 #loupe button.close{
@@ -69,4 +72,13 @@ h1{
 }
 span.help-button{
   color: gray;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+}
+
+span#open-help{
+  padding: 0 0 15px 15px;
 }
