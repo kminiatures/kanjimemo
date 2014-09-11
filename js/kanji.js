@@ -27,7 +27,7 @@ $(document).ready(function(){
     alert('漢字をメモしておけるよ。サーバにはなにも保存していないので、恥しい漢字を保存しても大丈夫ですよ。iPhone 用だよ。');
     openSlide($('#help'));
   }else{
-    console.log(history);
+    // console.log(history);
   }
 
   function print_history(){
@@ -47,13 +47,13 @@ $(document).ready(function(){
     size = 20 + hist.count * 4;
     var li = 
       '<li class="" style="font-size:'+size+'pt;">' +
-        hist.word + 
+        decodeURIComponent(hist.word) + 
       '</li>';
     $('#hist').append(li);
   }
 
   function clean_input(){
-    return $('<div>').text(input.val()).html(); // excape
+    return $('<div>').text(input.val()).html(); // escape
   }
 
   function save(){
@@ -61,14 +61,16 @@ $(document).ready(function(){
     if(str == '') return;
     input.val('');
 
-    if(history[str]){
-      history[str]['count'] += 1;
-      history[str]['updated_at'] = Date.now();
+    key = encodeURIComponent(str);
+    if(history[key]){
+      history[key]['count'] += 1;
+      history[key]['updated_at'] = Date.now();
     }else{
-      history[str] = { count: 1, word: str, updated_at: Date.now() };
+      history[key] = { count: 1, word: key, updated_at: Date.now() };
     }
     saveStorage(history);
     print_history();
+    setTimeout(function(){ $('#save').focus();}, 500);
   }
 
   function fitFontSizeToBox(box_id, inner_id){
@@ -140,7 +142,7 @@ $(document).ready(function(){
 
   $('#delete-button').click(function(){
     var str = $('#loupe-text').html();
-    delete history[str];
+    delete history[encodeURIComponent(str)];
     saveStorage(history);
     print_history();
   });
@@ -153,8 +155,8 @@ $(document).ready(function(){
 
   $('#hist').delegate('li', 'click', function(){
     var str = $(this).text();
-    var h = history[str];
-    $('#loupe-text').text(str);
+    var h = history[encodeURIComponent(str)];
+    $('#loupe-text').text(decodeURIComponent(h.word));
     $('#loupe-count').html( h.count + "回");
     $('#loupe-updated_at').text(date_for(h.updated_at));
     openSlide($('#loupe'));
